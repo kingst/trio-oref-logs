@@ -4,7 +4,7 @@ from google.cloud import storage
 from flask import Blueprint, request, jsonify, abort
 
 
-BUCKET_NAME = "oref-js-swift-comparison-logs"
+BUCKET_NAME = "trio-oref-logs-gcs"
 
 sign_url_api = Blueprint('sign_url_api', __name__)
 

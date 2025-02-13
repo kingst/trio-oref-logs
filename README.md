@@ -13,3 +13,9 @@ to deploy
 ```bash
 ./deploy.sh
 ```
+
+if you need to delete old services, use this:
+
+```bash
+gcloud app versions list --project=trio-oref-logs --format="get(version.id)" --filter="traffic_split=0" | xargs gcloud app versions delete --project=trio-oref-logs
+```

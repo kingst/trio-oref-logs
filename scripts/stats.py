@@ -38,6 +38,7 @@ def get_function_stats(cursor) -> List[Tuple[str, int, int, int, int]]:
             COUNT(*) as total,
             SUM(CASE WHEN result_type = 'matching' THEN 1 ELSE 0 END) as matching_count,
             SUM(CASE WHEN result_type = 'valueDifference' THEN 1 ELSE 0 END) as diff_count,
+            SUM(CASE WHEN result_type != 'matching' THEN 1 ELSE 0 END) as not_matching_count,
             COUNT(DISTINCT device_id) as device_count
         FROM comparisons
         GROUP BY function
@@ -98,11 +99,12 @@ def print_stats(db_path: str):
         
         # Function Statistics
         print("\n=== Function Statistics ===")
-        for func, total, matching, diff, devices in get_function_stats(cursor):
+        for func, total, matching, diff, not_matching, devices in get_function_stats(cursor):
             print(f"\n{func}:")
             print(f"  Total: {total:,}")
             print(f"  Matching: {matching:,}")
             print(f"  Differences: {diff:,}")
+            print(f"  Not matching: {not_matching:,}")
             print(f"  Devices: {devices}")
         
         # Duration Statistics

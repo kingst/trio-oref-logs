@@ -12,9 +12,6 @@ function=$1
 input_date=$2
 
 # Use the provided value in the path
-for json in downloaded_files/trio-oref-validation/algorithm-comparisons/*/0.3.0/"${function}"/*/*.json; do
-    path_date=$(echo $json | awk -F'/' '{print $4}')
-    if [[ "$path_date" > "$input_date" ]] || [[ "$path_date" = "$input_date" ]]; then
-	python scripts/list_errors.py $function < $json
-    fi
+for json in downloaded_files/trio-oref-validation/algorithm-comparisons/${input_date}/0.3.0/"${function}"/*/*.json; do
+    python scripts/list_errors.py $function < $json
 done

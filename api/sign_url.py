@@ -27,7 +27,7 @@ def get_signed_url():
         abort(400, "Missing required fields")
         
     # Validate function name
-    valid_functions = {"determineBasal", "autosense", "makeProfile", "meal", "iob"}
+    valid_functions = {"determineBasal", "autosens", "makeProfile", "meal", "iob"}
     if function not in valid_functions:
         abort(400, "Invalid function name")
 

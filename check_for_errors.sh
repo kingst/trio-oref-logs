@@ -12,6 +12,6 @@ function=$1
 input_date=$2
 
 # Use the provided value in the path
-for json in downloaded_files/trio-oref-validation/algorithm-comparisons/${input_date}/0.5.1/"${function}"/*/*.json; do
+for json in downloaded_files/trio-oref-validation/algorithm-comparisons/${input_date}/0.5.0/"${function}"/*/*.json; do
     python scripts/list_errors.py $function < $json
 done

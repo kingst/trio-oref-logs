@@ -9,6 +9,6 @@ fi
 function=$1
 input_date=$2
 
-for iob_json in downloaded_files/trio-oref-validation/algorithm-comparisons/${input_date}/0.3.0/${function}/*/*.json; do
+for iob_json in downloaded_files/trio-oref-validation/algorithm-comparisons/${input_date}/0.5.0/${function}/*/*.json; do
     python scripts/extract_error_results.py $iob_json
 done

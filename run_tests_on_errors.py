@@ -5,11 +5,13 @@ import glob
 import atexit
 import shutil
 
-# FIXME: Still need to add to generalize
-#  - Update ConfigOverride.xcconfig to set the timezone (currently hardcoded to LosAngeles)
-#  - Lookup the simulator ID (currently hardcoded to my iPhone 16 running 18.4)
-#  - Do some checks for ../Trio-dev to make sure that it's on the oref-swift branch and
-#    doesn't have pending changes
+# FIXME: Still need to add the following
+#  - Update ConfigOverride.xcconfig to set the timezone
+#    (currently hardcoded to America/Los_Angeles)
+#  - Lookup the simulator ID (currently hardcoded to my iPhone 16
+#    running iOS 18.4)
+#  - Do some checks for ../Trio-dev to make sure that it's on the
+#    oref-swift branch and doesn't have pending changes
 
 def run_xcode_test(func):
     command = None
@@ -46,7 +48,7 @@ def main():
     """
     This script performs the same actions as the run_tests_on_errors.sh script.
     It checks for a date argument, starts serve_errors.py in the background,
-    cleans the errors/ directory, and then runs extract_errors.py.
+    cleans the errors/ directory, and then runs extract_errors.sh.
     The serve_errors.py process is terminated automatically on script exit.
     """
     # Check if an argument was provided

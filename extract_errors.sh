@@ -9,7 +9,7 @@ fi
 function=$1
 input_date=$2
 
-files=(downloaded_files/trio-oref-validation/algorithm-comparisons/${input_date}/0.5.0/${function}/*/*.json)
+files=(downloaded_files/trio-oref-validation/algorithm-comparisons/${input_date}/0.5.1/${function}/*/*.json)
 
 if [ -e "${files[0]}" ]; then
     for iob_json in "${files[@]}"; do

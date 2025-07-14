@@ -15,7 +15,7 @@ for func in autosens determineBasal iob profile meal; do
     echo "Checking ${func}"
     count=0
     shopt -s nullglob
-    for json in downloaded_files/trio-oref-validation/algorithm-comparisons/${input_date}/0.5.0/"${func}"/*/*.json; do
+    for json in downloaded_files/trio-oref-validation/algorithm-comparisons/${input_date}/0.5.1/"${func}"/*/*.json; do
         count=$((count + $(python3 scripts/list_errors.py $func < "$json" | wc -l)))
     done
     echo "Found ${count} errors for ${func}"

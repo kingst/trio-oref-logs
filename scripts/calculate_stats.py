@@ -91,7 +91,7 @@ def calculate_stats():
 
 def print_stats(stats):
     """Prints a formatted report of the statistics."""
-    print("\n--- Statistics Report ---")
+    print("\n--- Statistics Report (Last 7 days) ---")
     print(f"Total Comparisons (excluding simulators): {stats['total_comparisons']}")
     print(f"Total Errors (excluding simulators): {stats['total_errors']}")
     
@@ -107,9 +107,10 @@ def print_stats(stats):
     for version, count in stats['errors_by_oref_version'].most_common():
         print(f"  {version}: {count}")
 
-    print("\nErrors by Swift Version:")
-    for version, count in stats['errors_by_swift_version'].most_common():
-        print(f"  {version}: {count}")
+    # Add this back if we start to use the swift version
+    # print("\nErrors by Swift Version:")
+    # for version, count in stats['errors_by_swift_version'].most_common():
+    #    print(f"  {version}: {count}")
 
     print("\nErrors by Device:")
     for device, count in stats['errors_by_device'].most_common():
